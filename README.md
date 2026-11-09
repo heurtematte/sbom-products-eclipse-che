@@ -21,8 +21,9 @@ ORT Server must include the ORT SBOM plugin, for instance with the
 [images with the plugin](https://heurtematte.github.io/ort-sbom-plugin/ort-server/).
 
 1. In the organization, create two secrets: one with any value as user name, for instance `sbom-eclipse-org-user`,
-   and one with an API key of sbom.eclipse.org that has the `VIEW_PORTFOLIO` permission, for instance
-   `sbom-eclipse-org-api-key`.
+   and one with an API key of sbom.eclipse.org, for instance `sbom-eclipse-org-api-key`. The team of the API key only
+   needs the `VIEW_PORTFOLIO` permission and, if portfolio access control is enabled, access to the `che-server`
+   project and its versions.
 2. In the organization, create an infrastructure service with the URL `https://sbom.eclipse.org` and these secrets as
    user name and password. ORT Server passes them to the plugin for all requests to sbom.eclipse.org.
 3. Add this repository to a product, as a Git repository.
