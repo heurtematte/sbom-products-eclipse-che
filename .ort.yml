@@ -1,5 +1,5 @@
 # This repository contains no source code, only the SBOMs to analyze: use only the SBOM package manager, whatever
 # package managers are enabled for the run.
 analyzer:
-  enabledPackageManagers:
+  enabled_package_managers:
     - SBOM
