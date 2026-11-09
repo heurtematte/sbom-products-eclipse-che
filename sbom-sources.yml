@@ -1,0 +1,17 @@
+# SBOMs of Eclipse Che (https://eclipse.dev/che/) to analyze with the SBOM package manager of the ORT SBOM plugin.
+#
+# The SBOMs are published on the Eclipse Foundation SBOM registry (https://sbom.eclipse.org), a Dependency-Track
+# instance. At each run, ORT Server retrieves them through the Dependency-Track API, with the API key of the
+# infrastructure service whose URL is https://sbom.eclipse.org.
+#
+# A source is the URL of a Dependency-Track project page. Each version of a project has its own UUID in
+# Dependency-Track; "version" selects a version of the project with the same name, so the UUID of any version can be
+# used. Each source becomes a project in the results of the run.
+sources:
+  # che-server, the server of Eclipse Che: the current release.
+  - url: https://sbom.eclipse.org/projects/583d447a-ca3e-45b9-8eaf-464889a4b2c7
+    version: "7.124.0"
+
+  # The previous release, to compare the results of both releases.
+  - url: https://sbom.eclipse.org/projects/583d447a-ca3e-45b9-8eaf-464889a4b2c7
+    version: "7.123.0"
