@@ -7,11 +7,22 @@
 # A source is the URL of a Dependency-Track project page. Each version of a project has its own UUID in
 # Dependency-Track; "version" selects a version of the project with the same name, so the UUID of any version can be
 # used. Each source becomes a project in the results of the run.
+#
+# The SBOMs exported by Dependency-Track only contain the name, version, publisher, and repository of che-server, so
+# "project" gives the other metadata of the project.
 sources:
   # che-server, the server of Eclipse Che: the current release.
   - url: https://sbom.eclipse.org/projects/583d447a-ca3e-45b9-8eaf-464889a4b2c7
     version: "7.124.0"
+    project:
+      description: The server of Eclipse Che, the Kubernetes-native IDE and developer collaboration platform.
+      homepage: https://eclipse.dev/che/
+      licenses: EPL-2.0
 
   # The previous release, to compare the results of both releases.
   - url: https://sbom.eclipse.org/projects/583d447a-ca3e-45b9-8eaf-464889a4b2c7
     version: "7.123.0"
+    project:
+      description: The server of Eclipse Che, the Kubernetes-native IDE and developer collaboration platform.
+      homepage: https://eclipse.dev/che/
+      licenses: EPL-2.0

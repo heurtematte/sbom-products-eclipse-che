@@ -11,7 +11,9 @@ analyzes their components like the dependencies of source code: vulnerabilities,
 | `sbom-sources.yml` | The SBOMs to analyze: the Dependency-Track project and releases of Che.     |
 | `.ort.yml`         | Enables only the `SBOM` package manager for this repository.                |
 
-`che-server` is the only part of Eclipse Che published on sbom.eclipse.org.
+`che-server` is the only part of Eclipse Che published on sbom.eclipse.org. The SBOMs exported by sbom.eclipse.org
+only contain the name, version, publisher, and repository of `che-server`, so `sbom-sources.yml` also gives its
+description, homepage, and license, which ORT Server shows for the projects.
 
 ## Setup in ORT Server
 
@@ -36,6 +38,7 @@ each, and no issues. If the API key is missing or refused, the run reports an er
 Change the `version` of the sources in `sbom-sources.yml` and commit. Each commit records which releases are analyzed,
 so the results of a run can always be traced back to the SBOMs it analyzed.
 
-The plugin also supports `version: latest`, which selects the version that Dependency-Track flags as the latest
-version of a project. On sbom.eclipse.org, no version of `che-server` is flagged, so this repository pins the
-releases.
+To always analyze the latest release instead, use `version: latest`: it selects the version that Dependency-Track flags
+as the latest version, or, as no version of `che-server` is flagged on sbom.eclipse.org, the version whose SBOM was
+imported last. The results then follow the releases without commits, but a run no longer records which release it
+analyzed in Git, only in its results.
